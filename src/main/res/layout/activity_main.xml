@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/toolbar" />
+            <!--<android.support.design.widget.AppBarLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:background="@color/colorWhite"-->
+                <!--android:clipToPadding="false"-->
+                <!--android:theme="@style/AppTheme.AppBarOverlay">-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="?attr/actionBarSize"-->
+                    <!--android:background="@color/colorWhite"-->
+                    <!--android:orientation="horizontal"-->
+                    <!--android:gravity="center">-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:background="@color/colorWhite"-->
+                        <!--android:orientation="horizontal"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:layout_marginRight="25dp"-->
+                        <!--android:layout_marginTop="5dp">-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="30dp"-->
+                            <!--android:text="Сегодня"-->
+                            <!--android:textColor="@color/colorPrimaryDark"-->
+                            <!--android:textSize="18sp"-->
+                            <!--android:fontFamily="@font/ubuntu"/>-->
+
+                        <!--<ImageView-->
+                            <!--android:layout_height="24dp"-->
+                            <!--android:layout_width="24dp"-->
+                            <!--android:gravity="center_vertical"-->
+                            <!--android:layout_marginBottom="3dp"-->
+                            <!--android:src="@drawable/ic_arrow_drop_down"-->
+                            <!--android:tint="@color/colorPrimaryDark"/>-->
+                    <!--</LinearLayout>-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:background="@color/colorWhite"-->
+                        <!--android:orientation="horizontal"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:layout_marginLeft="25dp"-->
+                        <!--android:layout_marginTop="5dp">-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="30dp"-->
+                            <!--android:fontFamily="@font/ubuntu"-->
+                            <!--android:text="Тематика"-->
+                            <!--android:textColor="@color/colorPrimaryDark"-->
+                            <!--android:textSize="18sp" />-->
+
+                        <!--<ImageView-->
+                            <!--android:layout_height="24dp"-->
+                            <!--android:layout_width="24dp"-->
+                            <!--android:gravity="center_vertical"-->
+                            <!--android:layout_marginBottom="3dp"-->
+                            <!--android:src="@drawable/ic_arrow_drop_down"-->
+                            <!--android:tint="@color/colorPrimaryDark"/>-->
+                    <!--</LinearLayout>-->
+
+                <!--</LinearLayout>-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="7dp"-->
+                    <!--android:background="@drawable/select"/>-->
+            <!--</android.support.design.widget.AppBarLayout>-->
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_below="@+id/toolbar_layout">
+
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rclvNews"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </ScrollView>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="false"
+        android:background="@color/colorWhite">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/colorWhite">
+
+            <include layout="@layout/nav_header_main"/>
+
+            <ScrollView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/scrollview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="vertical"
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/colorWhite">
+
+                    <LinearLayout
+                        android:id="@+id/menuItem"
+                        android:clickable="true"
+                        android:onClick="actionClick"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="20dp"
+                        android:background="@color/colorWhite">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_account_balance"
+                            android:layout_gravity="center_vertical"
+                            android:tint="@color/colorPrimary"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"
+                            android:fontFamily="@font/ubuntu"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="Менюшка"/>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2px"
+                        android:background="@color/secondaryBackGroundGrey" />
+
+                    <LinearLayout
+                        android:id="@+id/menuAbout"
+                        android:clickable="true"
+                        android:onClick="actionClick"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="20dp"
+                        android:background="@color/colorWhite">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_exit"
+                            android:layout_gravity="center_vertical"
+                            android:tint="@color/colorPrimary"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/textGrey"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/ubuntu"
+                            android:text="О проекте  |  Контакты"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+    </android.support.design.widget.NavigationView>
+</android.support.v4.widget.DrawerLayout>
